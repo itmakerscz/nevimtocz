@@ -1,0 +1,79 @@
+/* --- CONTAINER QUERIES & RESPONSIVITY --- */
+
+/* KB Layout */
+@container kb-grid (min-width: 768px) {
+    .kb-fullscreen-grid { 
+        grid-template-columns: var(--kb-sidebar-width, 300px) 1fr;
+        grid-template-areas: "kb-pane kb-list";
+    }
+}
+
+/* KB Item Metadata */
+@container kb-item (max-width: 320px) {
+    .kb-meta span { display: none; } /* Hide date to save space */
+    .kb-meta { justify-content: flex-end; }
+    .kb-item-actions { gap: 4px; }
+}
+
+/* KB Sidebar Search Button */
+@container sidebar-search (max-width: 280px) { 
+    .add-kb-btn .btn-text { display: none; } 
+}
+
+/* Settings Page Grid Layout */
+@container settings-page (max-width: 900px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, auto); /* 5 blocks * 2 rows each */
+    }
+    .settings-block:nth-of-type(1) { grid-row: 1 / span 2; }
+    .settings-block:nth-of-type(2) { grid-row: 3 / span 2; }
+    .settings-block:nth-of-type(3) { grid-row: 5 / span 2; }
+    .settings-block:nth-of-type(4).full-width { grid-column: 1; grid-row: 7 / span 2; }
+    .settings-block:nth-of-type(5).full-width { grid-column: 1; grid-row: 9 / span 2; }
+}
+
+/* Settings Block Content */
+@container settings-block (min-width: 480px) {
+    .block-content { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+        gap: calc(var(--layout-gap) * 0.5); 
+    }
+}
+
+/* Chat View Optimizations */
+@container chat-view (max-width: 600px) {
+    .msg-bubble {
+        max-width: 92%;
+        padding: var(--spacing-md);
+    }
+    .system-tag {
+        font-size: 0.65rem;
+    }
+    .msg-wrapper { gap: var(--spacing-sm); }
+}
+
+/* Chat Input Area */
+@container input-area (max-width: 500px) {
+    .input-box { gap: 4px; padding: 4px 8px; }
+    .input-box .ui-button.is-icon { padding: 4px; }
+    .input-box textarea { font-size: 0.9rem; }
+}
+
+/* Main App Header */
+@container app-header (max-width: 500px) {
+    .logo-group h1 { 
+        font-size: 1.1rem; 
+        letter-spacing: 0.2rem; 
+    }
+    .header-controls { gap: 0.4rem; }
+}
+
+@container app-header (max-width: 650px) {
+    .header-status-badges {
+        margin-inline-start: 0.75rem;
+        padding-inline-start: 0.75rem;
+    }
+    .header-badge span:not(.material-symbols-outlined) { display: none; }
+}

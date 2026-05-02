@@ -1,0 +1,29 @@
+/* --- UI & INTERACTION ANIMATIONS --- */
+
+@keyframes chunkAppear {
+    from { opacity: 0; transform: translateY(4px); filter: brightness(2) blur(2px); }
+    to { opacity: 1; transform: translateY(0); filter: brightness(1) blur(0); }
+}
+
+@keyframes blink { from, to { opacity: 0; } 50% { opacity: 1; } }
+@keyframes slideUpFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes cyberScan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+@keyframes pulseGlow { 0% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0.5; transform: scale(1); } }
+
+@keyframes glitch-init {
+    0% { clip-path: inset(10% 0 30% 0); transform: translate(-5px, 2px); }
+    20% { clip-path: inset(40% 0 10% 0); transform: translate(5px, -2px); }
+    40% { clip-path: inset(0 0 70% 0); transform: translate(-10px, 0); }
+    60% { clip-path: inset(80% 0 0 0); transform: translate(10px, 2px); }
+    80% { clip-path: inset(20% 0 50% 0); transform: translate(-5px, -2px); }
+    100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+}
+
+/* --- ANIMATION TRIGGER CLASSES --- */
+
+.fx-aberration { text-shadow: 0.5px 0px 0.5px rgba(255, 0, 51, 0.3), -0.5px 0px 0.5px rgba(0, 153, 255, 0.3); }
+.pulse { animation: pulseGlow 2s infinite; }

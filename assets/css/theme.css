@@ -1,0 +1,49 @@
+/* --- THEME LOGIC & SEMANTIC TOKENS --- */
+
+:root {
+    color-scheme: light dark;
+    
+    /* Glass Effects */
+    --glass-bg: light-dark(rgba(255,255,255,0.8), rgba(34,34,34,0.8));
+    --glass-blur: blur(12px);
+    
+    /* Semantic Surfaces */
+    --surface-main: light-dark(var(--light-bg), var(--dark-color));
+    --text-main: light-dark(var(--dark-color), var(--light-color));
+    --border-main: light-dark(#ddd, #333);
+}
+
+/* Explicit Theme Overrides & Transitions */
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
+.theme-transition, .theme-transition * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+}
+
+body { 
+    background: var(--surface-main);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    margin: 0; height: 100dvh;
+    display: flex; 
+    flex-direction: column;
+    text-wrap: pretty;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Theme */
+::-webkit-scrollbar { width: 4px; }
+/* Global Interaction & Scrollbar */
+::selection {
+    background: var(--red-color);
+    color: var(--light-color);
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--red-color), transparent 50%); border-radius: 10px; }
+::-webkit-scrollbar-thumb { 
+    background: color-mix(in srgb, var(--red-color), transparent 50%); 
+    border-radius: 10px; 
+}
